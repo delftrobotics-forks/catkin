@@ -175,7 +175,7 @@ function(_catkin_add_executable_with_google_test type target)
   target_link_libraries(${target} ${${type_upper}_LIBRARIES} ${THREADS_LIBRARY})
 
   # make sure gtest/gmock is built before the target
-  add_dependencies(${target} ${${type_upper}_LIBRARIES})
+  add_dependencies(${target} ${type} ${type}_main)
 endfunction()
 
 # Internal function for finding gtest or gmock sources
